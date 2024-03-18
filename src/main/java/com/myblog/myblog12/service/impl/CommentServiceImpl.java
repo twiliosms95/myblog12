@@ -45,13 +45,11 @@ public class CommentServiceImpl implements CommentService {
         return dto;
     }
 
-
-
     @Override
     public CommentDto updateComment(long id, CommentDto commentDto, long postId) {
         Post post = postRepository.findById(postId).orElseThrow(
                 () -> new ResourceNotFoundException("Post not found for id:" + id)
-        );
+        ); 
 
         Comment comment = commentRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Comment not found for id:" + id)
